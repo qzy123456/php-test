@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Chat Client</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdnjs.gtimg.com/cdnjs/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" >
+        //判读浏览器是否支持websocket
+        $().ready(function () {
+            if (!window.WebSocket) {
+                alert("你的浏览器不支持该功能啊");
+            }
+        });
+        //在消息框中打印内容
+        function log(text) {
+            $("#msg_paler").append("<li style='width:1120px;word-wrap:break-word;'>" + text + "</li>");
+        }
+        //请求的IP地址
+        var wsServer = 'ws://127.0.0.1:5200';
+        var websocket = new WebSocket(wsServer);
+        //连接成功建立后响应
+        websocket.onopen = function (evt) {
+            console.log("Connected to WebSocket server.");
+        };
+
+        websocket.onclose = function (evt) {
+            console.log("Disconnected");
+        };
+
+        websocket.onmessage = function (evt) {
+            console.log('Retrieved data from server: ' + evt.data);
+            $("#imgg").attr('src',evt.data);
+        };
+
+        websocket.onerror = function (evt, e) {
+            console.log('Error occured: ' + evt.data);
+        };
+
+        $(function () {
+            //发送base64格式的图片
+            $("#sendFileForm").submit(function () {
+                var file = document.getElementById("file").files[0];
+                if (!/image\/\w+/.test(file.type)) {
+                    log("请上传图片！");
+                    return false;
+                }
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                    var img_data = '{"type":"3","data":"' + this.result + '"}';
+                    log("\n开始发送文件");
+                    websocket.send(img_data);
+                }
+                return false;
+            });
+            $('#butu').click(function () {
+                var name = $('#name').val();
+
+                var data = '{"type":"2","data":"' + name + '"}';
+                websocket.send(data);
+                $('#name').val('');
+            })
+        });
+    </script>
+</head>
+<body>
+<h3>发送图片</h3>
+<input id="name" type="text"  /> <input type="button" id="butu" value="xxxx">
+<br>
+<div>
+    <form id="sendFileForm">
+        <input id="file" type="file" multiple />
+        <input type="submit" value="Send" />
+    </form>
+</div>
+<ul id="msg_paler"></ul>
+<br>
+<img id="imgg" src="" alt="">
+</body>
+</html>

@@ -1,0 +1,26 @@
+syntax = "proto3";
+package pb;
+// 字段规则：required -> 字段只能也必须出现 1 次
+// 字段规则：optional -> 字段可出现 0 次或1次
+// 字段规则：repeated -> 字段可出现任意多次（包括 0）
+// 类型：int32、int64、sint32、sint64、string、32-bit ....
+// 字段编号：0 ~ 536870911（除去 19000 到 19999 之间的数字）[1,2的29次方 - 1]
+//字段规则 类型 名称 = 字段编号;
+// 班级
+message Class {
+    int32 num = 1;
+    repeated Student students = 2;
+}
+
+// 学生
+message Student {
+    string name = 1;
+    int32 age = 2;
+    Sex sex = 3;
+}
+
+//性别
+enum Sex {
+    MAN = 0;
+    WOMAN = 1;
+}
