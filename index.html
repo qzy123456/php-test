@@ -1,0 +1,231 @@
+<script>
+var uid='';
+$(".chat-list-people").each(function () {
+$(this).click(function () {
+
+var n = $(this).index();
+uid = $(this).attr('uid');
+console.log(uid);
+
+
+var pData = {
+fid:{$uid},
+tid:parseInt(uid),
+}
+console.log($.toJSON(pData));
+exampleSocket.send($.toJSON(pData)); //获取消息记录，绑定fd
+
+
+$(".chatBox-head-one").toggle();
+$(".chatBox-head-two").toggle();
+$(".chatBox-list").fadeToggle();
+$(".chatBox-kuang").fadeToggle();
+
+//传名字
+$(".ChatInfoName").text($(this).children(".chat-name").children("p").eq(0).html());
+
+//传头像
+$(".ChatInfoHead>img").attr("src", $(this).children().eq(0).children("img").attr("src"));
+$(".chat-avatars").find('img').attr("src", $(this).children().eq(0).children("img").attr("src"));
+//传UID
+$('#chatBox-content-demo').attr('uid',uid);
+//聊天框默认最底部
+$(document).ready(function () {
+$("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+});
+
+$('#chatBox-content-demo').html("");
+})
+});
+
+//返回列表
+$(".chat-return").click(function () {
+$(".chatBox-head-one").toggle(1);
+$(".chatBox-head-two").toggle(1);
+$(".chatBox-list").fadeToggle(1);
+$(".chatBox-kuang").fadeToggle(1);
+});
+
+//      发送信息
+$("#chat-fasong").click(function () {
+var textContent = $(".div-textarea").html().replace(/[\n\r]/g, '<br>')
+if (textContent != "") {
+$(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+    "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+    "<div class=\"right\"> <div class=\"chat-message\"> " + textContent + " </div> " +
+        "<div class=\"chat-avatars\"><img src=\"{$headurl}\" alt=\"头像\" /></div> </div> </div>");
+//发送后清空输入框
+$(".div-textarea").html("");
+//聊天框默认最底部
+$(document).ready(function () {
+$("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+});
+//发送到swoole服务器
+var pData={
+content:textContent,
+fid:1,
+tid:2
+};
+if(pData.content == ''){
+alert("消息不能为空");
+return;
+}
+exampleSocket.send($.toJSON(pData));
+}
+});
+
+//      发送表情
+$("#chat-biaoqing").click(function () {
+$(".biaoqing-photo").toggle();
+});
+$(document).click(function () {
+$(".biaoqing-photo").css("display", "none");
+});
+$("#chat-biaoqing").click(function (event) {
+event.stopPropagation();//阻止事件
+});
+
+$(".emoji-picker-image").each(function () {
+$(this).click(function () {
+var bq = $(this).parent().html();
+console.log(bq)
+$(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+    "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+    "<div class=\"right\"> <div class=\"chat-message\"> " + bq + " </div> " +
+        "<div class=\"chat-avatars\"><img src=\"{$headurl}\" alt=\"头像\" /></div> </div> </div>");
+//发送到swoole服务器
+var pData={
+content:bq,
+<?php if($uid){ ?>
+fid:{$uid},
+<?php }else{ ?>
+fid:"",
+<?php }?>
+tid:uid,
+}
+if(pData.content == ''){
+alert("消息不能为空");
+return;
+}
+exampleSocket.send($.toJSON(pData));
+
+//发送后关闭表情框
+$(".biaoqing-photo").toggle();
+//聊天框默认最底部
+$(document).ready(function () {
+$("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+});
+})
+});
+
+//      发送图片
+function selectImg(pic) {
+if (!pic.files || !pic.files[0]) {
+return;
+}
+var reader = new FileReader();
+reader.onload = function (evt) {
+var images = evt.target.result;
+$(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+    "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+    "<div class=\"right\"> <div class=\"chat-message\"><img src=" + images + "></div> " +
+        "<div class=\"chat-avatars\"><img src=\"{$headurl}\" alt=\"头像\" /></div> </div> </div>");
+$.ajax({
+type:'post',
+url:"home/product/up",
+data:{data:images,type:'chat'},
+dataType:'json',
+success: function(data){
+console.log(data);
+var picurl='';
+picurl='<img src='+data+'>';
+//发送到swoole服务器
+var pData={
+content:picurl,
+<?php if($uid){ ?>
+fid:{$uid},
+<?php }else{ ?>
+fid:"",
+<?php }?>
+tid:uid,
+}
+if(pData.content == ''){
+alert("消息不能为空");
+return;
+}
+exampleSocket.send($.toJSON(pData));
+
+}
+
+
+})
+
+
+
+
+
+//聊天框默认最底部
+$(document).ready(function () {
+$("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+});
+};
+reader.readAsDataURL(pic.files[0]);
+
+}
+
+
+</script>
+<script src="/static/js/jquery.json.js"></script>
+<script type="text/javascript">
+    var exampleSocket = new WebSocket("ws://103.80.27.186:9502");
+    $(function () {
+        exampleSocket.onopen = function (event) {
+        };
+        exampleSocket.onmessage = function (event) {
+            var src =  $(".ChatInfoHead").find('img').attr("src");
+            var data= $.parseJSON(event.data);
+            console.log(src);
+            console.log(data);
+            var html='';
+            $.each(data,function(i,val){
+                if($('#chatBox-content-demo').attr('uid')==val.fid){
+                    html+="<div class='clearfloat'>";
+                    html+="<div class='author-name'>";
+                    html+="<small class='chat-date'>2017-12-02 14:26:58</small> ";
+                    html+="</div>";
+                    html+='<div class="left">';
+                    html+='<div class="chat-avatars"><img src=' + src + '></div> ';
+                    html+='<div class="chat-message">'+val.content+'</div> </div> </div>';
+                }else{
+                    html+=' <div class="clearfloat">';
+                    html+='        <div class="author-name">';
+                    html+='    <small class="chat-date">2017-12-02 14:26:58</small>';
+                    html+=' </div>';
+                    html+=' <div class="right">';
+                    html+=' <div class="chat-message">'+val.content+'</div>';
+                    html+='   <div class="chat-avatars"><img src="{$headurl}" alt="头像"/></div>';
+                    html+='   </div>';
+                    html+=' </div>';
+
+
+                }
+            });
+            $('#chatBox-content-demo').append(html);
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        }
+
+
+    })
+
+    function initData(fid,tid) {
+        var pData = {
+            fid:parseInt(fid),
+            tid:parseInt(tid),
+        }
+        console.log($.toJSON(pData));
+        exampleSocket.send($.toJSON(pData)); //获取消息记录，绑定fd
+    }
+</script>

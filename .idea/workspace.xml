@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="79fcc8c0-c2f6-40bc-aefd-0e456e9fe027" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/danmu/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/danmu/demo/index.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ye</find>
+      <find>$redis</find>
+      <find>partition</find>
+      <find>SelectTCP</find>
+      <find>set_time</find>
+      <find>CallableClass</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/danmu" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2" />
+  <component name="ProjectId" id="1T36cHVkVKUd8h3B54Rpi8sHSTZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHP Script.redis11.php">
+    <configuration name="字符串反转.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/字符串反转.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="判断方法是否存在的两个函数区别.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/判断方法是否存在的两个函数区别.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="反射.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/反射.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="异步任务.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/异步任务.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="抽象工厂模式.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/抽象工厂模式.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="redis11.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/redis11.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="trie_fliter.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/trie_fliter.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="zval.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/zval.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.redis11.php" />
+        <item itemvalue="PHP Script.zval.php" />
+        <item itemvalue="PHP Script.trie_fliter.php" />
+        <item itemvalue="PHP Script.字符串反转.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79fcc8c0-c2f6-40bc-aefd-0e456e9fe027" name="Default Changelist" comment="" />
+      <created>1552630828996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552630828996</updated>
+      <workItem from="1552630830737" duration="898000" />
+      <workItem from="1552899608558" duration="3292000" />
+      <workItem from="1552973842924" duration="7724000" />
+      <workItem from="1553765614011" duration="5212000" />
+      <workItem from="1554082477976" duration="440000" />
+      <workItem from="1554796126815" duration="1172000" />
+      <workItem from="1556273287993" duration="154000" />
+      <workItem from="1556518781289" duration="1449000" />
+      <workItem from="1556522291850" duration="1944000" />
+      <workItem from="1557026794793" duration="2460000" />
+      <workItem from="1557106907133" duration="3693000" />
+      <workItem from="1557138014568" duration="5257000" />
+      <workItem from="1557468089523" duration="2361000" />
+      <workItem from="1558520072585" duration="745000" />
+      <workItem from="1559111388859" duration="4724000" />
+      <workItem from="1559552558519" duration="1000" />
+      <workItem from="1559643266977" duration="1018000" />
+      <workItem from="1559698097891" duration="5611000" />
+      <workItem from="1560130859618" duration="7554000" />
+      <workItem from="1560734772711" duration="173000" />
+      <workItem from="1560736625796" duration="198000" />
+      <workItem from="1560756832650" duration="592000" />
+      <workItem from="1561442988212" duration="739000" />
+      <workItem from="1561615645604" duration="355000" />
+      <workItem from="1561714618720" duration="556000" />
+      <workItem from="1561872354679" duration="26000" />
+      <workItem from="1561963229272" duration="9971000" />
+      <workItem from="1562725841124" duration="123000" />
+      <workItem from="1562830362542" duration="2025000" />
+      <workItem from="1563154113805" duration="4809000" />
+      <workItem from="1563619585637" duration="696000" />
+      <workItem from="1563760191625" duration="5982000" />
+      <workItem from="1564366263999" duration="1227000" />
+      <workItem from="1564459624896" duration="5634000" />
+      <workItem from="1564970149744" duration="11095000" />
+      <workItem from="1565575030035" duration="1310000" />
+      <workItem from="1565764313362" duration="1048000" />
+      <workItem from="1566179735373" duration="1998000" />
+      <workItem from="1566523673639" duration="3956000" />
+      <workItem from="1566784226238" duration="17318000" />
+      <workItem from="1566975228853" duration="9455000" />
+      <workItem from="1567389398781" duration="8923000" />
+      <workItem from="1567994084782" duration="839000" />
+      <workItem from="1568182769721" duration="11934000" />
+      <workItem from="1568599204419" duration="16704000" />
+      <workItem from="1568794395314" duration="13491000" />
+      <workItem from="1568964200107" duration="2178000" />
+      <workItem from="1569202893901" duration="9100000" />
+      <workItem from="1570499134194" duration="44030000" />
+      <workItem from="1571622605496" duration="2401000" />
+      <workItem from="1571795455372" duration="22465000" />
+      <workItem from="1572227068257" duration="24872000" />
+      <workItem from="1572676515791" duration="693000" />
+      <workItem from="1572761435464" duration="726000" />
+      <workItem from="1572826045494" duration="87000" />
+      <workItem from="1573349807785" duration="355000" />
+      <workItem from="1573864056918" duration="75000" />
+      <workItem from="1584239088197" duration="65000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="host - 2019.10.12 at 18h 42m 21s.xml">
+      <configuration name="host" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

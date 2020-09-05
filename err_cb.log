@@ -1,0 +1,6 @@
+Kafka error: Local: Broker transport failure (reason: 127.0.0.1:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Connection refused (after 0ms in state CONNECT))
+Kafka error: Local: All broker connections are down (reason: 1/1 brokers are down)
+Kafka error: Local: Broker transport failure (reason: 127.0.0.1:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Connection refused (after 0ms in state CONNECT))
+Kafka error: Local: All broker connections are down (reason: 1/1 brokers are down)
+Kafka error: Local: Broker transport failure (reason: 127.0.0.1:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Connection refused (after 0ms in state CONNECT))
+Kafka error: Local: All broker connections are down (reason: 1/1 brokers are down)
