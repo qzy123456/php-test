@@ -65,8 +65,9 @@ foreach ($arr as &$val) {
     echo current($arr);// php7 全返回1 (current传入的是个数组)
 }
 
-list($arr[], $arr[]) = [1,2,3];
+list($arr[], ,$arr[]) = [1,2,3];
 var_dump($arr);
+echo '=========';
 $array = [1, 2];
 
 list($a, $b) = $array;

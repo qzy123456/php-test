@@ -57,9 +57,9 @@ $numbers = array('nike' => 200, 'jordan' => 500, 'adidas' => 800);
 //改用yield生成器
 function mt_rand_weight($numbers) {
     $total = 0;
-    foreach ($numbers as $number => $weight) {
+    foreach ($numbers as $name => $weight) {
         $total += $weight;
-        yield $number => $total;
+        yield $name => $total;
     }
 }
 
