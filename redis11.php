@@ -42,7 +42,7 @@ $redis->incr('xsxs');
 for($i=1;$i<=10;$i++){
     $redis->lPush($str,json_encode($data));
 }
-die;
+//die;
 ////var_dump($redis->lRange($str,0,-1));
 //var_dump($redis->lRem($str,10,0));
 $time = time();
@@ -70,7 +70,7 @@ $redis->zAdd($key,$time,time());
 //print_r(array_slice($redis->hGetAll($key),-2,null,true));
 //print_r(array_keys($redis->hGetAll($key))[0]);
 
-die;
+//die;
 //
 //
 //
@@ -100,9 +100,9 @@ echo "<br>";
 
 
 
-$redis->Bitop('AND', 'monthActivities', $redis->keys('sign-2019-05*'));
+//$redis->Bitop('AND', 'monthActivities', $redis->keys('sign-2019-05*'));
 echo "连续三天都签到的用户数量：" . $redis->bitCount('twoAnd');
-echo "<br>";
+echo PHP_EOL;
 $iterator = null;
 while (true) {
     $keys = $redis->scan($iterator, 'sign-*'.'-'.$uid);
@@ -111,7 +111,7 @@ while (true) {
     }
     foreach ($keys as $key) {
         echo $key ;
-        echo  "<br>";
+        echo  PHP_EOL;
     }
 
 }
