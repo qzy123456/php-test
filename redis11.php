@@ -103,9 +103,13 @@ echo "<br>";
 //$redis->Bitop('AND', 'monthActivities', $redis->keys('sign-2019-05*'));
 echo "连续三天都签到的用户数量：" . $redis->bitCount('twoAnd');
 echo PHP_EOL;
+
+/* 设置遍历的特性为不重复查找，该情况下扩展只会scan一次，所以可能会返回空集合 */
+$redis->setOption(Redis::OPT_SCAN, Redis::SCAN_NORETRY);
+$count = 50;  // 每次遍历50条，注意是遍历50条，遍历出来的50条key还要去匹配你的模式，所以并不等于就能够取出50条key
 $iterator = null;
 while (true) {
-    $keys = $redis->scan($iterator, 'sign-*'.'-'.$uid);
+    $keys = $redis->scan($iterator, 'sign-*'.'-'.$uid,$count);
     if ($keys === false) {//迭代结束，未找到匹配pattern的key
         return;
     }
