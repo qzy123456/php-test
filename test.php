@@ -5,6 +5,12 @@
  * Date: 2019-03-19
  * Time: 11:06
  */
+//测试一下list函数
+
+list($a,$b) = ['a','b'];
+echo $a,$b;
+//输出 ab
+exit();
 $s = microtime(true);
 
 for ($c = 100; $c--;) {
