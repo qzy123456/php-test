@@ -58,11 +58,11 @@ $key = "hash22";
 $redis->zAdd($key,$time,time());
 //$total = $redis->zSize($key);
 //echo $total;
-//$redis->zRemRangeByScore($key,1572513591,1572513591);
-//var_dump($redis->zRangeByScore($key,0,time(),array('withscores' => TRUE)));
-//var_dump($redis->zRemRangeByRank($key,5,-1));
-//var_dump($redis->zRangeByScore($key,0,time(),array('withscores' => TRUE)));
-//var_dump($redis->zRange($key,0,1,TRUE));
+$redis->zRemRangeByScore($key,1572513591,1572513591);
+var_dump($redis->zRangeByScore($key,0,time(),array('withscores' => TRUE)));
+var_dump($redis->zRemRangeByRank($key,5,-1));
+var_dump($redis->zRangeByScore($key,0,time(),array('withscores' => TRUE)));
+var_dump($redis->zRange($key,0,1,TRUE));
 //下面是hash操作
 //$redis->hSet($key,$time,json_encode($messageData));
 //var_dump($redis->hDel($key,1572256083));

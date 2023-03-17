@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="fileUploadForm" enctype="multipart/form-data">
+    <input type="file" id="fileInput">
+    <button id="uploadBtn" type="button">开始上传</button>
+</form>
+
+</body>
+<script>
+    const CHUNK_SIZE = 1024 * 1024;  // 每个分片大小为1MB
+
+    let fileInput = document.getElementById('fileInput');
+    let uploadBtn = document.getElementById('uploadBtn');
+    let file = null;
+
+    fileInput.addEventListener('change', function() {
+        file = fileInput.files[0];
+    });
+
+    uploadBtn.addEventListener('click', function() {
+        if (!file) {
+            alert('请选择文件');
+            return;
+        }
+
+        // 计算分片数量
+        let chunks = Math.ceil(file.size / CHUNK_SIZE);
+
+        // 上传第一个分片，获取上传ID
+        let chunkNumber = 1;
+        let formData = new FormData();
+        formData.append('file', file.slice(0, CHUNK_SIZE));
+        formData.append('chunkNumber', chunkNumber);
+        formData.append('chunks', chunks);
+
+        fetch('http://0.0.0.0:7777/分片上传示例/upload.php', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.text())
+            .then(response => {
+                let uploadId = response;
+                console.log(`Upload ID: ${uploadId}`);
+
+                // 上传剩余分片
+                for (let i = 2; i <= chunks; i++) {
+                    let start = (i - 1) * CHUNK_SIZE;
+                    let end = i == chunks ? file.size : i * CHUNK_SIZE;
+                    let formData = new FormData();
+                    formData.append('file', file.slice(start, end));
+                    formData.append('chunkNumber', i);
+                    formData.append('chunks', chunks);
+                    formData.append('uploadId', uploadId);
+
+                    fetch('/upload.php', {
+                        method: 'POST',
+                        body: formData
+                    }).then(response => {
+                        console.log(`Chunk ${i} uploaded`);
+                    });
+                }
+            });
+    });
+
+</script>
+</html>
