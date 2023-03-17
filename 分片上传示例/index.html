@@ -27,7 +27,7 @@
             alert('请选择文件');
             return;
         }
-
+        var fileName = file.name;
         // 计算分片数量
         let chunks = Math.ceil(file.size / CHUNK_SIZE);
 
@@ -37,6 +37,7 @@
         formData.append('file', file.slice(0, CHUNK_SIZE));
         formData.append('chunkNumber', chunkNumber);
         formData.append('chunks', chunks);
+        formData.append('fileName', fileName);
 
         fetch('http://0.0.0.0:7777/分片上传示例/upload.php', {
             method: 'POST',
@@ -55,8 +56,9 @@
                     formData.append('chunkNumber', i);
                     formData.append('chunks', chunks);
                     formData.append('uploadId', uploadId);
+                    formData.append('fileName', fileName);
 
-                    fetch('/upload.php', {
+                    fetch('http://0.0.0.0:7777/分片上传示例/upload.php', {
                         method: 'POST',
                         body: formData
                     }).then(response => {

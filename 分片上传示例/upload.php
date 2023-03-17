@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 $targetDir = "./";
 
 if (!empty($_FILES)) {
@@ -15,7 +16,7 @@ if (!empty($_FILES)) {
 
     if ($chunkNumber == $chunks) {
         // 所有分片上传完成，合并文件
-        $fileName = $targetDir . basename($_FILES['file']['name']);
+        $fileName = $targetDir . $_POST['fileName'];
 
         $fp = fopen($fileName, 'w');
 
